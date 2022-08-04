@@ -1,0 +1,11 @@
+# Run the build command of this docker image
+WP_VERSION=6.0.1 PHP_VERSION=8.0 docker build -f Dockerfile -t wordpress:${WP_VERSION}-php${PHP_VERSION} --build-arg WP_VERSION=${WP_VERSION} --build-arg PHP_VERSION=${PHP_VERSION} .
+
+# Start the image and leave it running in a terminal window
+WP_VERSION=6.0.1 PHP_VERSION=8.0 docker-compose up wordpress 
+
+# Get a bash command line into the running docker
+WP_VERSION=6.0.1 PHP_VERSION=8.0 docker-compose run --entrypoint bash wordpress
+
+# Run the run.sh to finish the WP and wp-config file setup
+WP_VERSION=6.0.1 PHP_VERSION=8.0 ./run.sh
